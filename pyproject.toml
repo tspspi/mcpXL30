@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcpXL30"
+version = "0.1.0"
+description = "FastMCP server exposing Philips XL30 ESEM controls via pyxl30"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [
+  {name = "tsp", email = "tsp@example.com"}
+]
+dependencies = [
+  "mcp>=1.1.0",
+  "pyxl30-tspspi>=0.1.0",
+  "pyserial>=3.5",
+  "pydantic[email]>=2.6.0",
+  "typing_extensions>=4.8.0",
+]
+
+[project.optional-dependencies]
+remote = [
+  "fastapi>=0.110.0",
+  "uvicorn>=0.23.0",
+  "argon2-cffi>=23.1.0",
+]
+
+[project.scripts]
+mcpxl30 = "mcpXL30.app.cli:main"
+mcpxl30-genkey = "mcpXL30.app.cli:generate_api_key"
+
+[tool.setuptools.packages.find]
+where = ["mcpXL30"]

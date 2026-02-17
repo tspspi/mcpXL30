@@ -1,0 +1,50 @@
+{
+  "instrument": {
+    "port": "/dev/ttyUSB0",
+    "debug": false,
+    "log_level": "INFO",
+    "retry_count": 3,
+    "reconnect_count": 3,
+    "retry_delay": 5.0,
+    "reconnect_delay": 5.0,
+    "detectors_autodetect": false
+  },
+  "image_capture": {
+    "remote_directory": "C:\\\\TEMP",
+    "filename_prefix": "MCPIMG_",
+    "include_databar": true,
+    "include_magnification": false,
+    "include_graphics_plane": false,
+    "allow_overwrite": false
+  },
+  "safety": {
+    "max_high_tension_kv": 15.0,
+    "allow_venting": false,
+    "allow_pumping": true,
+    "allow_scan_mode_changes": true,
+    "allow_stage_motion": false,
+    "allow_detector_switching": true,
+    "allow_beam_shift": true,
+    "allow_scan_rotation_changes": true,
+    "allow_image_filter_changes": true,
+    "allow_specimen_current_mode_changes": false,
+    "allow_beam_blank_control": true,
+    "allow_oplock_control": false
+  },
+  "logging": {
+    "level": "INFO",
+    "logfile": null
+  },
+  "remote_server": {
+    "api_key_kdf": {
+      "algorithm": "argon2id",
+      "salt": "<base64-salt>",
+      "time_cost": 3,
+      "memory_cost": 65536,
+      "parallelism": 1,
+      "hash_len": 32,
+      "hash": "<base64-hash>"
+    },
+    "uds": "/var/run/mcpxl30.sock"
+  }
+}
