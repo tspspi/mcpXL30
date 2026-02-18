@@ -21,9 +21,9 @@ Note that this project was partially generated with LLM support.
 ## Installation
 
 ```bash
-pip install .
+pip install mcpXL30
 # or
-pip install ".[remote]"  # adds FastAPI/uvicorn/argon2 for remote mode
+pip install "mcpXL30[remote]"  # adds FastAPI/uvicorn/argon2 for remote mode
 ```
 
 ## Configuration
