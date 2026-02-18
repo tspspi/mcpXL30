@@ -4,7 +4,7 @@ __WORK IN PROGRESS__
 
 `mcpXL30` is an MCP (Model Context Protocol) server that exposes a curated
 subset of the [pyxl30](https://github.com/tspspi/pyxl30) control library to LLM
-agents.
+agents (i.e. AI contorl of the XL30 ESEM).
 
 Note that this project was partially generated with LLM support.
 
