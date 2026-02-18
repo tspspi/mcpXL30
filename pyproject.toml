@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "mcpXL30"
 version = "0.1.0"
-description = "FastMCP server exposing Philips XL30 ESEM controls via pyxl30"
+description = "FastMCP server exposing Philips XL30 ESEM controls via pyxl30 (unofficial)"
 readme = "README.md"
 license = {text = "BSD"}
 requires-python = ">=3.11"
