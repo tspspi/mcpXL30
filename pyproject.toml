@@ -7,10 +7,10 @@ name = "mcpXL30"
 version = "0.1.0"
 description = "FastMCP server exposing Philips XL30 ESEM controls via pyxl30"
 readme = "README.md"
-license = {text = "MIT"}
+license = {text = "BSD"}
 requires-python = ">=3.11"
 authors = [
-  {name = "tsp", email = "tsp@example.com"}
+  {name = "Thomas Spielauer", email = "pypipackages01@tspi.at"}
 ]
 dependencies = [
   "mcp>=1.1.0",

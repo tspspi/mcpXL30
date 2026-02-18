@@ -1,8 +1,12 @@
 # mcpXL30
 
+__WORK IN PROGRESS__
+
 `mcpXL30` is an MCP (Model Context Protocol) server that exposes a curated
 subset of the [pyxl30](https://github.com/tspspi/pyxl30) control library to LLM
 agents.
+
+Note that this project was partially generated with LLM support.
 
 ## Features
 
@@ -10,8 +14,9 @@ agents.
   tension, change scan modes, trigger pump/vent cycles, capture TIFF images).
 - Live MCP resources that describe the connected instrument and active config.
 - Safety envelope that limits accelerating voltage and sensitive operations.
-- Optional remote HTTP/UDS transport with the same authentication workflow as
-  `mcpMQTT`.
+- Fine grained settings that control allowed operations for the LLM agent.
+- Optional remote HTTP/UDS transport with the authentication workflow explained
+  in my [blog post](https://www.tspi.at/2026/01/10/chatgptremotemcp.html).
 
 ## Installation
 
@@ -88,8 +93,7 @@ them per deployment.
 mcpxl30 --config ~/.config/mcpxl30/config.json
 ```
 
-The process reads/writes MCP messages on stdio for integration into compatible
-LLM orchestrators.
+The process utilizes the `stdio` transport.
 
 ### Remote FastAPI/uvicorn transport
 
@@ -101,10 +105,10 @@ mcpxl30 --transport remotehttp --config ~/.config/mcpxl30/config.json
 - The FastAPI app exposes `/mcp` (MCP streaming API) and `/status` (unauthenticated health check).
 - Authentication expects the API key in `Authorization: Bearer`, `X-API-Key`,
   or the `?api_key=` query parameter.
-- Binding uses a Unix domain socket (`remote_server.uds`) unless you specify a
-  TCP `port`, in which case `host` (default `0.0.0.0`) applies.
+- Binding uses a [Unix domain socket](https://www.tspi.at/2026/01/04/UDS.html) (`remote_server.uds`)
+  unless you specify a TCP `port`, in which case `host` (default `0.0.0.0`) applies.
 
-## MCP Surface
+## MCP functionality
 
 ### Tools
 
@@ -112,7 +116,7 @@ mcpxl30 --transport remotehttp --config ~/.config/mcpxl30/config.json
 
 | Tool | Purpose |
 | --- | --- |
-| `instrument_identify` | Return instrument type/serial, scan mode, high tension. |
+| `instrument_identify` | Return the microscopes type/serial, scan mode, high tension. |
 | `read_high_tension` / `set_high_tension` | Inspect or change accelerating voltage (safety-capped). |
 | `get_scan_mode` / `set_scan_mode` | Read or change scan mode (`allow_scan_mode_changes`). |
 | `capture_image` / `trigger_photo_capture` | Store images (TIFF or console photo). |
